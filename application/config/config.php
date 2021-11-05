@@ -24,8 +24,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'https://bookscafe.co.in/';
-$config['base_url'] = 'http://localhost/bookcafe/';
-													   
+    $config['base_url'] = 'http://localhost/bookcafe/';
+    $config['base_url'] = 'http://localhost/boocafe/book-cafe/';											   
 
 /*
 |--------------------------------------------------------------------------
