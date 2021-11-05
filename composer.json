@@ -1,0 +1,18 @@
+{
+	"name": "otsglobal/sma",
+	"description": "Librarian - Library Management System",
+	"type": "project",
+	"require": {
+		"php": "^7.0",
+		"mpdf/mpdf": "^8.0",
+		"zendframework/zend-barcode": "^2.7",
+		"twilio/sdk": "^5.19.1",
+		"phpoffice/phpspreadsheet": "^1.2.1"
+	},
+	"authors": [
+		{
+			"name": "Surendra",
+			"email": "surendra.sonit@gmail.com"
+		}
+	]
+}

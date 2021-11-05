@@ -1,0 +1,15 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2021-08-24 00:45:16 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 02:06:39 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 09:49:30 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 11:10:26 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 12:50:23 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 13:43:01 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 13:43:03 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 13:47:15 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 13:47:44 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 14:01:09 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 14:33:54 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 19:29:07 --> Could not find the language line "book_total_label"
+ERROR - 2021-08-24 19:29:45 --> Could not find the language line "book_total_label"

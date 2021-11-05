@@ -1,0 +1,250 @@
+# Copyright (C) 2021 WPEnjoy.com
+# This file is distributed under the GNU General Public License v2 or later.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EnjoyGrid 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2021-06-28 14:39+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: WPEnjoy <support@wpenjoy.com>\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "404 Error - Page Not Found"
+msgstr ""
+
+#: 404.php:21
+msgid "Sorry, but it looks like nothing was found at this location. You may try one of the links below or do a search."
+msgstr ""
+
+#: 404.php:39 template-parts/content-none.php:34
+msgid "Most Used Categories"
+msgstr ""
+
+#: archive.php:18 header.php:112 search.php:18 single.php:19
+msgid "Home"
+msgstr ""
+
+#: comments.php:45 comments.php:66
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:83
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:53
+msgid "Theme by"
+msgstr ""
+
+#: footer.php:53
+msgid "WPEnjoy"
+msgstr ""
+
+#: footer.php:53
+msgid "Powered by"
+msgstr ""
+
+#: footer.php:53
+msgid "https://wordpress.org"
+msgstr ""
+
+#: footer.php:53
+msgid "WordPress"
+msgstr ""
+
+#: header.php:36
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:98
+msgid "Menu"
+msgstr ""
+
+#: header.php:134
+msgid "Close Menu"
+msgstr ""
+
+#: inc/about.php:42
+msgid "."
+msgstr ""
+
+#: inc/about.php:45 inc/template-tags.php:432
+msgid "Theme Demo"
+msgstr ""
+
+#: inc/about.php:47 inc/template-tags.php:432
+msgid "Documentation"
+msgstr ""
+
+#: inc/about.php:49
+msgid "More Themes"
+msgstr ""
+
+#: inc/classes/class-enjoygrid-walker-page.php:69
+#, php-format
+msgid "#%d (no title)"
+msgstr ""
+
+#: inc/classes/class-enjoygrid-walker-page.php:106 inc/template-tags.php:359
+msgid "Show sub menu"
+msgstr ""
+
+#: inc/template-tags.php:14 inc/template-tags.php:32
+msgid "Featured Post"
+msgstr ""
+
+#: inc/template-tags.php:28
+msgid "Display post on homepage featured area?"
+msgstr ""
+
+#: inc/template-tags.php:432
+msgid "Thank you for installing the EnjoyGrid theme!"
+msgstr ""
+
+#: inc/template-tags.php:432
+msgid "Dismiss"
+msgstr ""
+
+#: inc/template-tags.php:461
+msgid "Upgrade to PRO Theme"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:23
+#: inc/widgets/widget-home-content2.php:23
+msgid "Display post content blocks. Only use for the \"Home Content\" widget area."
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:29
+msgid "&raquo; Home Content"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:113
+#: inc/widgets/widget-home-content.php:128
+#: inc/widgets/widget-home-content2.php:102
+#: inc/widgets/widget-home-content2.php:117
+msgid "More"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:117
+#: inc/widgets/widget-home-content2.php:106
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:159 template-parts/entry-meta.php:9
+msgid "0 Comment"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:159 template-parts/entry-meta.php:9
+msgid "1 Comment"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:159 template-parts/entry-meta.php:9
+msgid "% Comments"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:159 template-parts/entry-meta.php:9
+msgid "Comments off"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:224
+#: inc/widgets/widget-home-content2.php:220
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:230
+#: inc/widgets/widget-home-content2.php:226
+msgid "Choose category"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:233
+#: inc/widgets/widget-home-content2.php:229
+msgid "All categories &hellip;"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:243
+msgid "3 Columns Layout"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:248
+msgid "4 Columns Layout"
+msgstr ""
+
+#: inc/widgets/widget-home-content.php:254
+#: inc/widgets/widget-home-content2.php:238 inc/widgets/widget-popular.php:172
+#: inc/widgets/widget-random.php:163 inc/widgets/widget-recent.php:162
+msgid "Number of posts to show"
+msgstr ""
+
+#: inc/widgets/widget-home-content2.php:29
+msgid "&raquo; Home Content 2"
+msgstr ""
+
+#: inc/widgets/widget-popular.php:23
+msgid "Display most commented posts with thumbnails."
+msgstr ""
+
+#: inc/widgets/widget-popular.php:29
+msgid "&raquo; Most Commented Posts"
+msgstr ""
+
+#: inc/widgets/widget-popular.php:165 inc/widgets/widget-random.php:156
+#: inc/widgets/widget-recent.php:155
+msgid "Title"
+msgstr ""
+
+#: inc/widgets/widget-popular.php:180 inc/widgets/widget-random.php:171
+#: inc/widgets/widget-recent.php:170
+msgid "Display post date?"
+msgstr ""
+
+#: inc/widgets/widget-random.php:23
+msgid "Display random posts with thumbnails."
+msgstr ""
+
+#: inc/widgets/widget-random.php:29
+msgid "&raquo; Random Posts"
+msgstr ""
+
+#: inc/widgets/widget-recent.php:23
+msgid "Display recent posts with thumbnails."
+msgstr ""
+
+#: inc/widgets/widget-recent.php:29
+msgid "&raquo; Recent Posts"
+msgstr ""
+
+#: search.php:19 search.php:22
+#, php-format
+msgid "Search Results for %s"
+msgstr ""
+
+#: template-parts/content-none.php:15
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr ""
+
+#: template-parts/content-single.php:35
+#, php-format
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: template-parts/content-single.php:110
+msgid "Related Posts"
+msgstr ""
+
+#: template-parts/pagination.php:2
+msgid "Previous"
+msgstr ""
+
+#: template-parts/pagination.php:2
+msgid "Next"
+msgstr ""
