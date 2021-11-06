@@ -99,6 +99,7 @@ class Home extends MY_Controller
 
         $this->data['page_auth'] = $this->mPageAuth;
 
+        $this->data['read_book'] = '';
         /*if ($login) {
             $this->data['body_class'] = 'hold-transition login-page';
         }*/

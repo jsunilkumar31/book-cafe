@@ -194,9 +194,22 @@ la la-magic"></i>Start-Up / Entrepreneurship</a></li>
                             ?>>
                                 <a href="<?= base_url('faqs'); ?>"><i class="ri-questionnaire-line"></i><span>FAQ's</span></a>
                             </li>
+                            
+                            
+                            <!-- Creator: Darshan ----------To redirect to BizHub for morethan 2lack subscribers starts-->
+                            <?php 
+                                $users_count = $this->home_model->getUsersCount();
+
+                                if($users_count > 200000){
+                            ?>
                             <li>
-                                <a href="http://bookscafe.co.in/bizhub/"><i class="ri-key-line"></i><span>BizHub</span></a>
+                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="ri-key-line"></i><span>BizHub</span></a>
                             </li>
+                            <?php }else{ ?>
+                                <li><a href="http://bookscafe.co.in/bizhub/"><i class="ri-key-line"></i><span>BizHub</span></a></li>
+                            <?php } ?>
+                            <!-- Creator: Darshan ----------To redirect to BizHub for morethan 2lack subscribers ends-->
+
                             <li>
                                 <a href="https://bookscafe.co.in/resources/"><i class="ri-file-pdf-line"></i><span>Resources</span></a>
                             </li>
@@ -301,6 +314,31 @@ la la-magic"></i>Start-Up / Entrepreneurship</a></li>
             </div>
 
             <!-- TOP Nav Bar END -->
+            <!-- Creator: Darshan ----------Popup To redirect to BizHub for morethan 2lack subscribers starts-->
+                <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <?php 
+                                    if($this->ion_auth->logged_in()){ ?>
+                                        <p>Please <a href="<?=base_url()?>panel"><button class="btn btn-primary btn-sm">Click Here</button></a> to continue.</p>
+                                <?php
+                                    }else{ ?>
+                                        <p>Please <a href="<?=base_url()?>panel"><button class="btn btn-primary btn-sm">Sign In</button></a> to continue.</p>
+                                <?php
+                                    }
+                                ?>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="padding: 0px !important;">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Creator: Darshan ----------Popup To redirect to BizHub for morethan 2lack subscribers ends-->
 <style>
     #ui-id-1{
         top: 72px!important;
