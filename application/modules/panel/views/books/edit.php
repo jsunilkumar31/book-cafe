@@ -89,6 +89,15 @@ $details = json_decode(json_encode($book_details), True);
 
                     </div>
 
+					<div class="form-group">
+						<label for="amazon_ratings"><small>Amazon Ratings</small></label>         
+						<input id="amazon_ratings" type="number" pattern="\d*" maxlength="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" name="amazon_ratings" class="form-control" value="<?php echo $details['amazon_ratings']; ?>">
+					</div>
+					<div class="form-group">
+						<label for="goodreads_ratings"><small>Goodreads Ratings</small></label>         
+						<input id="goodreads_ratings" type="number" pattern="\d*"  name="goodreads_ratings" class="form-control" maxlength="1" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="<?php echo $details['goodreads_ratings']; ?>">
+					</div>
+
 				</div>
 				<div class="col-md-6">
 		    		<div class="form-group">
