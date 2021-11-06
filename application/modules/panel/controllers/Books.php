@@ -318,6 +318,8 @@ class Books extends Admin_Controller {
         $this->form_validation->set_rules('copyright_year', 'Copyright Year', 'required');
         $this->form_validation->set_rules('date_receive', 'Date Recieved', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
+        $this->form_validation->set_rules('amazon_ratings', 'Amazon Ratings', 'required');
+        $this->form_validation->set_rules('goodreads_ratings', 'Goodreads Ratings', 'required');
         $this->load->library('upload');
 
         if ($this->form_validation->run() == true) {
@@ -343,6 +345,8 @@ class Books extends Admin_Controller {
                 'copyright_year' => $this->input->post('copyright_year'),
                 'date_receive' => $this->input->post('date_receive') ? $this->input->post('date_receive') : date('Y-m-d'),
                 'description' => $this->input->post('description'),
+                'amazon_ratings' => $this->input->post('amazon_ratings'),
+                'goodreads_ratings' => $this->input->post('goodreads_ratings'),
                 'custom_fields' => $cust,
             );
            
@@ -471,6 +475,8 @@ class Books extends Admin_Controller {
         $this->form_validation->set_rules('copyright_year', 'Copyright Year', 'required');
         $this->form_validation->set_rules('date_receive', 'Date Recieved', 'required');
         $this->form_validation->set_rules('description', 'Description', 'required');
+        $this->form_validation->set_rules('amazon_ratings', 'Amazon Ratings', 'required');
+        $this->form_validation->set_rules('goodreads_ratings', 'Goodreads_ratings', 'required');
         $this->load->library('upload');
         if ($book->isbn !== $this->input->post('isbn')) {
             $this->form_validation->set_rules('isbn', 'ISBN', 'required|is_unique[books.isbn]');
@@ -500,6 +506,8 @@ class Books extends Admin_Controller {
                 'copyright_year' => $this->input->post('copyright_year'),
                 'date_receive' => $this->input->post('date_receive') ? $this->input->post('date_receive') : date('Y-m-d'),
                 'description' => $this->input->post('description'),
+                'amazon_ratings' => $this->input->post('amazon_ratings'),
+                'goodreads_ratings' => $this->input->post('goodreads_ratings'),
                 'custom_fields' => ($cust),
             );
 
