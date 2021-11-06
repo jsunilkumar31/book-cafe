@@ -1,6 +1,47 @@
 <!-- Page Content  -->
 <div id="content-page" class="content-page">
     <div class="container-fluid">
+    <script>
+            $('#myModal').on('shown.bs.modal', function () {
+                $('#video1')[0].play();
+            })
+            $('#myModal').on('hidden.bs.modal', function () {
+                $('#video1')[0].pause();
+            })
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Promo Video</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-body">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/e46AGbBctQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="row">
             <div class="col-lg-12">
                 <marquee><p>Currently we are available in Bangalore only.</p></marquee>
@@ -106,6 +147,12 @@
                                     if ($book->image == '') {
                                         $image_url = base_url() . 'assets/uploads/book_covers/no_image.png';
                                     }
+
+                                    // -------creator: darshan---------number of copies of book
+                                    $book_copies = $book->book_copies;
+                                    if($book_copies == 0){
+                                        $book_copies = 'In Circulation';
+                                    }
                                     ?>
 
                                     <div class="col-sm-6 col-md-4 col-lg-4">
@@ -115,7 +162,7 @@
                                                     <div class="col-6 p-0 position-relative image-overlap-shadow">
                                                         <a href="javascript:void();"><img class="img-fluid rounded w-100" src="<?= $image_url; ?>" alt=""></a>
                                                         <div class="view-book">
-                                                                <a href="<?php echo base_url('book/' . $book->book_id); ?>" class="btn btn-sm btn-white">View Book</a>
+                                                            <a href="<?php echo base_url('book/' . $book->book_id); ?>" class="btn btn-sm btn-white">View Book</a>
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
@@ -138,8 +185,18 @@
                                                             <span class="pr-1 old-price d-none">&#8377;. <?= $book->price ?></span>
                                                             <h6><b>&#8377;. <?= $book->price ?></b></h6>
                                                         </div>
+
+                                                        <!-- -------creator: darshan---------number of copies of book-->
                                                         <div class="">
-                                                                <a href="<?php echo base_url('book/' . $book->book_id); ?>" class="btn btn-sm btn-white">View Book</a>
+                                                            <span>Number of Copies: <?=$book_copies;?></span>
+                                                        </div>
+                                                        <!-- -------creator: darshan---------end number of copies of book-->
+                                                        <div class="">
+                                                            <a href="<?php echo base_url('view_book/' . $book->book_id); ?>" class="btn btn-sm btn-white" style="background: var(--iq-primary);color: var(--iq-white);border-color: var(--iq-primary);">View Book</a>
+                                                            
+                                                            <?php if($read_book == 'view_ebook'){ ?>
+                                                                <a href="<?php echo base_url('view_ebook/' . $book->book_id); ?>" class="btn btn-sm btn-white">Read Book</a>
+                                                            <?php } ?>
                                                         </div>
                                                         <div class="iq-product-action d-none">
                                                             <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
@@ -155,7 +212,9 @@
                                     </div>
                                 <?php endforeach; ?>
                             <?php else: ?>
-
+                                <!-- Creator - Darshan - Just to check for pdf of e book -->
+                                <a href="<?php echo base_url('view_ebook/72'); ?>" class="btn btn-sm btn-white">Read Book</a>
+                                
                                 <div class="text-center">
                                     <h4 class="text-center">Please check with our Support Team for the Book.</h4>
                                     <a href="<?php echo base_url('contact'); ?>" class="btn btn-primary text-center">Contact Us</a>
