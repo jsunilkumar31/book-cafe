@@ -60,4 +60,4 @@ $route['category/(:any)/page'] = 'home/category/$1';
 $route['category/(:any)/page/(:any)'] = 'home/category/$1/page/$2';
 
 
-
+// hello
