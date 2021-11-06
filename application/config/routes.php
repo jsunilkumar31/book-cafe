@@ -59,6 +59,10 @@ $route['category/(:any)'] = 'home/category/$1';
 $route['category/(:any)/page'] = 'home/category/$1';
 $route['category/(:any)/page/(:any)'] = 'home/category/$1/page/$2';
 
+// creator: Darshan - to view book pdf in the same page
+$route['view_ebook/:num'] = 'home/view_ebook/$1';
+$route['view_book/:num'] = 'home/view_book/$1';
+// creator: Darshan - to view book pdf in the same page
 
 // hello
 // hi
