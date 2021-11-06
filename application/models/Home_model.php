@@ -166,6 +166,28 @@ Class Home_model extends CI_Model
       }
     // sunil added code
 
+    // creator Darshan - returns book id of E-books
+    public function getEbookByID($id, $dig = FALSE)
+    {
+        $q = $this->db->get_where('books', array('id' => $id), 1);
+        if ($q->num_rows() > 0) {
+            return $q->row();
+        }
+        return FALSE;
+    }
+    // creator Darshan
+
+    // creator Darshan - returns total number of users 
+    public function getUsersCount()
+    {
+        $query = $this->db->get("users");
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        }
+        return 0;
+    }
+    // creator Darshan
+
 }
 
 ?>
