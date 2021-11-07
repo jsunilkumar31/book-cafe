@@ -5,7 +5,7 @@
             <div class="col-sm-12">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div class="iq-card-header d-flex justify-content-between align-items-center">
-                        <h4 class="card-title mb-0 "><i>Book Description</i></h4>
+                        <h4 class="card-title mb-0 " style="color: #fa7c04;"><i>Book Description</i></h4>
                     </div>
                     <div class="iq-card-body pb-0">
                         <div class="description-contens align-items-top row">
@@ -55,23 +55,50 @@
                                     </div>
                                     <div class="mb-3 d-blockx ">
                                         <h4>Amazon Ratings : </h4>
-                                            <span class="font-size-20 text-warning">
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
+                                        <span class="font-size-20 text-warning">
+                                            <?php 
+                                            if ($book->amazon_rating == "" || $book->amazon_rating == 0)
+                                                # code...
+                                                echo "Ratings not available";
+                                           
+                                            if ($book->amazon_rating > 5) {
+                                                # code...
+                                                for ($i=0; $i < 5; $i++):
+                                                    # code...
+                                                    ?>
+                                                    <i class="fa fa-star mr-1"></i>
+                                                    <?php endfor; ?>
+                                                <?php }else{
+                                                for ($i=0; $i < $book->amazon_rating; $i++):
+                                                    # code...
+                                                    ?>
+                                                    <i class="fa fa-star mr-1"></i>
+                                                    <?php endfor;}
+                                            ?>
+                                        </span>
                                     </div>
                                     <div class="mb-3 d-blockx ">
                                         <h4>Goodreads Ratings: </h4>
-                                            <span class="font-size-20 text-warning">
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star mr-1"></i>
-                                                <i class="fa fa-star"></i>
-                                            </span>
+                                        <span class="font-size-20 text-warning">
+                                        <?php 
+                                            if ($book->goodreads_rating == "" || $book->goodreads_rating == 0 )
+                                                # code...
+                                                echo "Ratings not available";
+                                            if ($book->goodreads_rating > 5) {
+                                                # code...
+                                                for ($i=0; $i < 5; $i++):
+                                                    # code...
+                                                    ?>
+                                                    <i class="fa fa-star mr-1"></i>
+                                                    <?php endfor; ?>
+                                                <?php }else{
+                                                for ($i=0; $i < $book->goodreads_rating; $i++):
+                                                    # code...
+                                                    ?>
+                                                    <i class="fa fa-star mr-1"></i>
+                                                    <?php endfor;}
+                                            ?>
+                                        </span>
                                     </div>
                                 </div>
                                 
@@ -80,7 +107,7 @@
                                
                                 <div class="iq-card-transparent iq-card-block iq-card-stretch iq-card-height">
                                     <div class="iq-card-body p-0">
-                                        <h3 class="mb-3"><i><?php echo $book->book_title; ?></i></h3>
+                                        <h3 class="mb-3" style="color: #fa7c04;"><i><?php echo $book->book_title; ?></i></h3>
                                         <div class="price d-flex align-items-center font-weight-500 mb-2">
                                             <span class="font-size-20 pr-2 old-price d-none">Rs
                                                 <?php echo $book->price; ?></span>
@@ -149,111 +176,98 @@
                         <div class="iq-header-title">
                             <h4 class="card-title mb-0">Similar Books</h4>
                         </div>
-                        <div class="iq-card-header-toolbar d-flex align-items-center">
+                        <!-- <div class="iq-card-header-toolbar d-flex align-items-center">
                             <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="iq-card-body single-similar-contens">
                         <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
-                            <li class="col-md-3">
-                                <div class="row align-items-center">
-                                    <div class="col-5">
-                                        <div class="position-relative image-overlap-shadow">
-                                            <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                              src="images/similar-books/01.jpg" alt=""></a>
-                                            <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
+                        <?php if ($cater): ?>
+                            <?php for($i=0;$i < count($cater);$i++): ?>
+                                <?php
+                                
+                                if ($book->book_id!=$cater[$i]->book_id) {
+                                    # code...
+                                //  echo "<pre>";  print_r($cater[$i]->image);echo"</pre>";
+                                $image_url = base_url() . 'assets/uploads/book_covers/' . $cater[$i]->image;
+                                if ($cater[$i]->image == '') {
+                                    $image_url = base_url() . 'assets/uploads/book_covers/no_image.png';
+                                }
+
+                                // -------creator: darshan---------number of copies of book
+                                $book_copies = $book->book_copies;
+                                if($book_copies == 0){
+                                    $book_copies = 'In Circulation';
+                                }
+                                ?>
+                                <li>
+                                    <div class="">
+                                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height browse-bookcontent">
+                                        <div class="iq-card-body p-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="col-6 p-0 position-relative image-overlap-shadow">
+                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100" src="<?= $image_url; ?>" alt=""></a>
+                                                                <div class="view-book">
+                                                        <a href="<?php echo base_url('book/' . $cater[$i]->book_id); ?>" class="btn btn-sm btn-white">View Book</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-2">
+                                                        <h6 class="mb-1"><?= $cater[$i]->book_title ?></h6>
+                                                        <p class="font-size-13 line-height mb-1"><?php //$cater[$i]->author_name ?></p>
+                                                        <div class="d-block line-height">
+                                                            <span class="font-size-11 text-warning d-none">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>                                             
+                                                        </div>
+                                                        
+                                                    </div>
+                                                
+                                                    <div class="price d-flex align-items-center">
+                                                        <span class="pr-1 old-price d-none">&#8377;. <?= $cater[$i]->price ?></span>
+                                                        <h6><b>&#8377;. <?= $cater[$i]->price ?></b></h6>
+                                                    </div>
+
+                                                    <!-- -------creator: darshan---------number of copies of book-->
+                                                    <div class="">
+                                                        <span>Number of Copies: <?=$book_copies;?></span>
+                                                    </div>
+                                                    <!-- -------creator: darshan---------end number of copies of book-->
+                                                    <div class="">
+                                                        <a href="<?php echo base_url('book/' . $cater[$i]->book_id); ?>" class="btn btn-sm btn-white" style="background: var(--iq-primary);color: var(--iq-white);border-color: var(--iq-primary);">View Book</a>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="iq-product-action d-none">
+                                                        <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                                        <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
+                                                    </div>   
+                                                    
+                                                    </div>
+                                                
+                                                </div>
+                                            
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-7 pl-0">
-                                        <h6 class="mb-2">The Book of treasure Island find...</h6>
-                                        <p class="text-body">Author : Tara Zona</p>
-                                        <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3">
-                                <div class="row align-items-center">
-                                    <div class="col-5">
-                                        <div class="position-relative image-overlap-shadow">
-                                            <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                              src="images/similar-books/02.jpg" alt=""></a>
-                                            <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <h6 class="mb-2">Set For Lifr Being Scott Trench..</h6>
-                                        <p class="text-body">Author : Anna Rexia</p>
-                                        <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3">
-                                <div class="row align-items-center">
-                                    <div class="col-5">
-                                        <div class="position-relative image-overlap-shadow">
-                                            <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                              src="images/similar-books/03.jpg" alt=""></a>
-                                            <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <h6 class="mb-2">A Birth and Evolutions of the Soul...</h6>
-                                        <p class="text-body">Author : Bill Emia</p>
-                                        <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3">
-                                <div class="row align-items-center">
-                                    <div class="col-5">
-                                        <div class="position-relative image-overlap-shadow">
-                                            <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                              src="images/similar-books/04.jpg" alt=""></a>
-                                            <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <h6 class="mb-2">The Nature of world Beautiful Places.</h6>
-                                        <p class="text-body">Author : Hal Appeno</p>
-                                        <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3">
-                                <div class="row align-items-center">
-                                    <div class="col-5">
-                                        <div class="position-relative image-overlap-shadow">
-                                            <a href="javascript:void();"><img class="img-fluid rounded w-100"
-                                                                              src="images/similar-books/05.jpg" alt=""></a>
-                                            <div class="view-book">
-                                                <a href="book-page.html" class="btn btn-sm btn-white">View Book</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-7 pl-0">
-                                        <h6 class="mb-2">The mackup magazine find books..</h6>
-                                        <p class="text-body">Author : Zack Lee</p>
-                                        <a href="#" class="text-dark" tabindex="-1">Read Now<i
-                                                class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
+                                             
+                                </li>
+                            <?php }else{ } endfor; ?>
+                                <?php else: ?>
+                                <!-- Creator - Darshan - Just to check for pdf of e book -->
+                                <a href="<?php echo base_url('view_ebook/72'); ?>" class="btn btn-sm btn-white">Read Book</a>
+                                
+                            <?php endif; ?>
                         </ul>
                     </div>
                 </div>
             </div>
+            
             <div class="col-lg-12 ">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div

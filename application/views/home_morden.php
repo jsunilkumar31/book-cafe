@@ -29,9 +29,297 @@
                 </div>
             </div>
         </div>
+<style>
+#signup {
+  height: auto;
+  padding: 20px;
+  background: #fff;
+  margin: 80px auto;
+  position: relative;
+  min-height: 300px;
+}
+#fieldsets {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  padding: 8px;
+  margin-bottom: 8px;
+  position: relative;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  outline: none;
+  border: 1px solid #22918b;
+}
+input[type="radio"] {
+  margin: 6px;
+  display: inline-block;
+}
+fieldset {
+  border: none;
+  position: absolute;
+  left: -640px;
+  width: 600px;
+  padding: 10px 0;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -ms-transition: all 0.3s linear;
+  opacity: 0;
+}
+fieldset.current {
+  left: 20px;
+  opacity: 1;
+}
+fieldset.next {
+  left: 640px;
+}
+input[type="submit"] {
+  display: none;
+  border: none;
+}
+#section-tabs {
+  font-size: 0.8em;
+  height: 50px;
+  position: relative;
+  margin-top: -50px;
+  margin-bottom: 50px;
+  padding: 0;
+  font-weight: bold;
+  list-style: none;
+  text-transform: uppercase;
+}
+#section-tabs li {
+  color: #a7a7a7;
+  cursor: not-allowed;
+  border-left: 1px solid #aaa;
+  text-decoration: none;
+  padding: 0 6px;
+  float: left;
+  width: 25%;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  line-height: 30px;
+  background: #ddd;
+  position: relative;
+}
+#section-tabs li span {
+  color: #bababa;
+}
+#section-tabs li.active {
+  color: #444;
+  cursor: pointer;
+}
+#section-tabs li:after {
+  content: "";
+  display: block;
+  margin-left: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#section-tabs li.current {
+  opacity: 1;
+  background: #fff;
+  z-index: 999;
+  border-left: none;
+}
+#section-tabs li.current:after {
+  border: 15px solid transparent;
+  border-left: 15px solid #fa7c04;
+}
+.error {
+  color: #bf2424;
+  display: block;
+}
+input.error,
+textarea.error {
+  border-color: #bf2424;
+}
+input.error:focus,
+textarea.error:focus {
+  border-color: #bf2424;
+}
+label.error {
+  margin-bottom: 20px;
+}
+input.valid {
+  color: green;
+}
+label.valid {
+  position: absolute;
+  right: 20px;
+}
+input + .valid,
+textarea + .valid {
+  display: none;
+}
+.valid + .valid {
+  display: inline;
+  position: absolute;
+  right: 10px;
+  margin-top: -36px;
+  color: green;
+}
+#myquestionmodal .btn {
+  border: none;
+  padding: 8px;
+  background: #fa7c04;
+  cursor: pointer;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  color: #fff;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-family: "Merriweather Sans", sans-serif;
+}
+#myquestionmodal .btn:hover {
+  background: #fa7c04;
+  /* color: #fa7c04; */
+}
+
+</style>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myquestionmodal">questions</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myquestionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-body">
+            <div class="embed-responsive ">
+                <form id="signup" action="somewhere" method="POST">
+                    <ul id="section-tabs">
+                    <li class="current active"><span>1.</span> Creds</li>
+                    <li><span>2.</span> Deets</li>
+                    <li><span>3.</span> Settings</li>
+                    <li><span>4.</span> Last Words</li>
+                    </ul>
+                <div id="fieldsets">
+                <fieldset class="current">
+                    <label for="email">Email:</label>
+                    <input name="email" type="email" class="required email" />
+                    <label name="password" for="password">Password:</label>
+                    <input type="password" minlength="10" class="required">
+                </fieldset>
+                <fieldset class="next">
+                    <label for="username">Username:</label>
+                    <input name="username" type="text">
+                    <label for="bio">Short Bio:</label>
+                    <textarea name="bio" class="required"></textarea>
+                </fieldset>
+                <fieldset class="next">
+                    <label for="interests">Basic Interests:</label>
+                    <textarea name="bio"></textarea>
+                    <p>Receive newsletter?<br>
+                    <input type="radio" name="newsletter" value="yes"><label for="newsletter">yes</label>
+                    <input type="radio" name="newsletter" value="no"><label for="newsletter">no</label>
+                    </p>
+                </fieldset>
+                <fieldset class="next">
+                    <label for="referrer">Referred by:</label>
+                    <input type="text" name="referrer">
+                    <label for="phone">Daytime Phone:</label>
+                    <input type="tel" name="phone">
+                </fieldset>
+                <a class="btn" id="next">Next Section ▷</a>
+                <input type="submit" class="btn">
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+$("body").on("keyup", "form", function(e){
+  if (e.which == 13){
+    if ($("#next").is(":visible") && $("fieldset.current").find("input, textarea").valid() ){
+      e.preventDefault();
+      nextSection();
+      return false;
+    }
+  }
+});
+ 
+ 
+$("#next").on("click", function(e){
+  console.log(e.target);
+  nextSection();
+});
+ 
+$("form").on("submit", function(e){
+  if ($("#next").is(":visible") || $("fieldset.current").index() < 3){
+    e.preventDefault();
+  }
+});
+ 
+function goToSection(i){
+  $("fieldset:gt("+i+")").removeClass("current").addClass("next");
+  $("fieldset:lt("+i+")").removeClass("current");
+  $("li").eq(i).addClass("current").siblings().removeClass("current");
+  setTimeout(function(){
+    $("fieldset").eq(i).removeClass("next").addClass("current active");
+      if ($("fieldset.current").index() == 3){
+        $("#next").hide();
+        $("input[type=submit]").show();
+      } else {
+        $("#next").show();
+        $("input[type=submit]").hide();
+      }
+  }, 80);
+ 
+}
+ 
+function nextSection(){
+  var i = $("fieldset.current").index();
+  if (i < 3){
+    $("li").eq(i+1).addClass("active");
+    goToSection(i+1);
+  }
+}
+ 
+$("li").on("click", function(e){
+  var i = $(this).index();
+  if ($(this).hasClass("active")){
+    goToSection(i);
+  } else {
+    alert("Please complete previous sections first.");
+  }
+});
+ 
+ 
 
 
-
+</script>
 
 
 
@@ -192,7 +480,7 @@
                                                         </div>
                                                         <!-- -------creator: darshan---------end number of copies of book-->
                                                         <div class="">
-                                                            <a href="<?php echo base_url('view_book/' . $book->book_id); ?>" class="btn btn-sm btn-white" style="background: var(--iq-primary);color: var(--iq-white);border-color: var(--iq-primary);">View Book</a>
+                                                            <a href="<?php echo base_url('book/' . $book->book_id); ?>" class="btn btn-sm btn-white" style="background: var(--iq-primary);color: var(--iq-white);border-color: var(--iq-primary);">View Book</a>
                                                             
                                                             <?php if($read_book == 'view_ebook'){ ?>
                                                                 <a href="<?php echo base_url('view_ebook/' . $book->book_id); ?>" class="btn btn-sm btn-white">Read Book</a>
@@ -431,7 +719,204 @@
                      </div>
                   </div>
             <!-- sunil added code -->
+            <!-- sunil added code -->
+            <div class="col-lg-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">coming soon</h4>
+                        </div>
+                        <!-- <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                        </div> -->
+                    </div>
+                    <div class="iq-card-body single-similar-contens">
+                        <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
+                        <?php if ($coming_soon): ?>
+                            <?php for($i=0;$i < count($coming_soon);$i++): ?>
+                                <?php
+                                
+                                if ($book->book_id!=$coming_soon[$i]->book_id) {
+                                    # code...
+                                //  echo "<pre>";  print_r($cater[$i]->image);echo"</pre>";
+                                $image_url = base_url() . 'assets/uploads/book_covers/' . $coming_soon[$i]->image;
+                                if ($coming_soon[$i]->image == '') {
+                                    $image_url = base_url() . 'assets/uploads/book_covers/no_image.png';
+                                }
 
+                                // -------creator: darshan---------number of copies of book
+                                $book_copies = $book->book_copies;
+                                if($book_copies == 0){
+                                    $book_copies = 'In Circulation';
+                                }
+                                ?>
+                                <li>
+                                    <div class="">
+                                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height browse-bookcontent">
+                                        <div class="iq-card-body p-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="col-6 p-0 position-relative image-overlap-shadow">
+                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100" src="<?= $image_url; ?>" alt=""></a>
+                                                                <div class="view-book">
+                                                        <a href="<?php echo base_url('book/' . $coming_soon[$i]->book_id); ?>" class="btn btn-sm btn-white">View Book</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-2">
+                                                        <h6 class="mb-1"><?= $coming_soon[$i]->book_title ?></h6>
+                                                        <p class="font-size-13 line-height mb-1"><?php //$cater[$i]->author_name ?></p>
+                                                        <div class="d-block line-height">
+                                                            <span class="font-size-11 text-warning d-none">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>                                             
+                                                        </div>
+                                                        
+                                                    </div>
+                                                
+                                                    <div class="price d-flex align-items-center">
+                                                        <span class="pr-1 old-price d-none">&#8377;. <?= $coming_soon[$i]->price ?></span>
+                                                        <h6><b>&#8377;. <?= $coming_soon[$i]->price ?></b></h6>
+                                                    </div>
+
+                                                    <!-- -------creator: darshan---------number of copies of book-->
+                                                    <div class="">
+                                                        <span>Number of Copies: <?=$book_copies;?></span>
+                                                    </div>
+                                                    <!-- -------creator: darshan---------end number of copies of book-->
+                                                    <div class="">
+                                                        <a href="<?php echo base_url('book/' . $coming_soon[$i]->book_id); ?>" class="btn btn-sm btn-white" style="background: var(--iq-primary);color: var(--iq-white);border-color: var(--iq-primary);">View Book</a>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="iq-product-action d-none">
+                                                        <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                                        <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
+                                                    </div>   
+                                                    
+                                                    </div>
+                                                
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                             
+                                </li>
+                            <?php }else{ } endfor; ?>
+                                <?php else: ?>
+                                <!-- Creator - Darshan - Just to check for pdf of e book -->
+                                <a href="<?php echo base_url('view_ebook/72'); ?>" class="btn btn-sm btn-white">Read Book</a>
+                                
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- sunil added code -->
+            <!-- sunil added code -->
+            <div class="col-lg-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">New Books</h4>
+                        </div>
+                        <!-- <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                        </div> -->
+                    </div>
+                    <div class="iq-card-body single-similar-contens">
+                        <ul id="single-similar-slider" class="list-inline p-0 mb-0 row">
+                        <?php if ($new_books): ?>
+                            <?php for($i=0;$i < count($new_books);$i++): ?>
+                                <?php
+                                
+                                if ($book->book_id!=$new_books[$i]->book_id) {
+                                    # code...
+                                //  echo "<pre>";  print_r($cater[$i]->image);echo"</pre>";
+                                $image_url = base_url() . 'assets/uploads/book_covers/' . $new_books[$i]->image;
+                                if ($new_books[$i]->image == '') {
+                                    $image_url = base_url() . 'assets/uploads/book_covers/no_image.png';
+                                }
+
+                                // -------creator: darshan---------number of copies of book
+                                $book_copies = $book->book_copies;
+                                if($book_copies == 0){
+                                    $book_copies = 'In Circulation';
+                                }
+                                ?>
+                                <li>
+                                    <div class="">
+                                    <div class="iq-card iq-card-block iq-card-stretch iq-card-height browse-bookcontent">
+                                        <div class="iq-card-body p-0">
+                                            <div class="d-flex align-items-center">
+                                                <div class="col-6 p-0 position-relative image-overlap-shadow">
+                                                    <a href="javascript:void();"><img class="img-fluid rounded w-100" src="<?= $image_url; ?>" alt=""></a>
+                                                                <div class="view-book">
+                                                        <a href="<?php echo base_url('book/' . $new_books[$i]->book_id); ?>" class="btn btn-sm btn-white">View Book</a>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="mb-2">
+                                                        <h6 class="mb-1"><?= $new_books[$i]->book_title ?></h6>
+                                                        <p class="font-size-13 line-height mb-1"><?php //$cater[$i]->author_name ?></p>
+                                                        <div class="d-block line-height">
+                                                            <span class="font-size-11 text-warning d-none">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </span>                                             
+                                                        </div>
+                                                        
+                                                    </div>
+                                                
+                                                    <div class="price d-flex align-items-center">
+                                                        <span class="pr-1 old-price d-none">&#8377;. <?= $new_books[$i]->price ?></span>
+                                                        <h6><b>&#8377;. <?= $new_books[$i]->price ?></b></h6>
+                                                    </div>
+
+                                                    <!-- -------creator: darshan---------number of copies of book-->
+                                                    <div class="">
+                                                        <span>Number of Copies: <?=$book_copies;?></span>
+                                                    </div>
+                                                    <!-- -------creator: darshan---------end number of copies of book-->
+                                                    <div class="">
+                                                        <a href="<?php echo base_url('book/' . $new_books[$i]->book_id); ?>" class="btn btn-sm btn-white" style="background: var(--iq-primary);color: var(--iq-white);border-color: var(--iq-primary);">View Book</a>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="iq-product-action d-none">
+                                                        <a href="javascript:void();"><i class="ri-shopping-cart-2-fill text-primary"></i></a>
+                                                        <a href="javascript:void();" class="ml-2"><i class="ri-heart-fill text-danger"></i></a>
+                                                    </div>   
+                                                    
+                                                    </div>
+                                                
+                                                </div>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                             
+                                </li>
+                            <?php }else{ } endfor; ?>
+                                <?php else: ?>
+                                <!-- Creator - Darshan - Just to check for pdf of e book -->
+                                <a href="<?php echo base_url('view_ebook/72'); ?>" class="btn btn-sm btn-white">Read Book</a>
+                                
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                </div>
+            </div> 
+            <!-- sunil added code -->
             <div class="col-lg-12">
                 
 

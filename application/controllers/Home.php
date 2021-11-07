@@ -103,7 +103,8 @@ class Home extends MY_Controller
         /*if ($login) {
             $this->data['body_class'] = 'hold-transition login-page';
         }*/
-
+        $this->data["coming_soon"] = $this->home_model->getbooksbysimilarcatid(24);
+        $this->data["new_books"] = $this->home_model->getbooksbysimilarcatid(23);
         $this->load->view('template_morden/header', $this->data);
         // $this->load->view('template_morden/navigation', $this->data);
         $this->load->view('home_morden', $this->data);
