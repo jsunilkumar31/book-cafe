@@ -88,7 +88,10 @@ class Books extends MY_Controller {
         /* echo '<pre>';
           var_export($this->data["book"]);
           echo '</pre>'; */
-
+        $this->load->model('home_model');
+        $this->data["cater"] = $this->home_model->getbooksbysimilarcatid($this->data["book"]->category_id);
+        // echo "<pre>";  print_r($cater);echo"</pre>";
+        // print_r($this->data["book"]->category_id);exit;
         $this->load->view('template_morden/header', $this->data);
         $this->load->view('book-single', $this->data);
         $this->load->view('template_morden/footer', $this->data);
