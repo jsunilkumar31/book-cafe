@@ -164,6 +164,27 @@ Class Home_model extends CI_Model
         }
         return $response;
       }
+      public function getbooksbysimilarcatid($cat_id = null)
+      {
+          # code...
+            $this->db->select('*');
+            $this->db->join('books', 'books.id=book_categories.book_id', 'left');
+            // $this->db->join('book_authors', 'books.id=book_authors.book_id', 'left');
+            // $this->db->join('authors', 'authors.id=book_authors.author_id', 'left');
+            // $this->db->group_by('books.id');
+            $query = $this->db->get_where('book_categories', array('category_id' => $cat_id));
+            // $this->db->where("category_id=?",$cat_id);
+          
+            // return $query->result();
+            if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+            return false;
+          
+      }
     // sunil added code
 
     // creator Darshan - returns book id of E-books
