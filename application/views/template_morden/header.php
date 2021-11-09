@@ -205,11 +205,11 @@ la la-magic"></i>Start-Up / Entrepreneurship</a></li>
                             <!-- Creator: Darshan ----------To redirect to BizHub for morethan 2lack subscribers starts-->
                             <?php 
                                 $users_count = $this->home_model->getUsersCount();
-
-                                if($users_count > 200000){
+                                
+                                if($users_count > 2000){
                             ?>
                             <li>
-                                <a href="#" data-toggle="modal" data-target="#myModal"><i class="ri-key-line"></i><span>BizHub</span></a>
+                                <a href="#" data-toggle="modal" data-target="#myBizModal"><i class="ri-key-line"></i><span>BizHub</span></a>
                             </li>
                             <?php }else{ ?>
                                 <li><a href="http://bookscafe.co.in/bizhub/"><i class="ri-key-line"></i><span>BizHub</span></a></li>
@@ -321,8 +321,8 @@ la la-magic"></i>Start-Up / Entrepreneurship</a></li>
 
             <!-- TOP Nav Bar END -->
             <!-- Creator: Darshan ----------Popup To redirect to BizHub for morethan 2lack subscribers starts-->
-                <!-- Modal -->
-            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            
+            <div class="modal fade" id="myBizModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-body">
