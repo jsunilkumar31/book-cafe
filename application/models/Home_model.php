@@ -80,6 +80,72 @@ Class Home_model extends CI_Model
         }
         return false;
     }
+    public function getAuthorBookList($limit, $start = 1, $author_id = NULL, $category_id = NULL, $book_title = NULL)
+    {
+        //$this->db->query('SET GLOBAL innodb_buffer_pool_size=402653184;');
+        //0*12 , 12 == 0,12
+        //1*12 , 12 == 12,12
+        //2*12 , 12 == 24,12
+        
+        if($start == 0){
+            $start = 1;
+        }
+        
+        $offSet = ($start-1)*$limit;
+        //var_export($offSet);exit;
+        $this->db->limit($limit,$offSet);
+        if ($category_id) {
+            if (is_array($category_id)) {
+                $this->db->where_in('book_categories.category_id', $category_id);
+            }else{
+                $this->db->where('book_categories.category_id', $category_id);
+            }
+        }
+    //     if ($author_id) {
+    //         if (is_array($author_id)) {
+    //             $this->db->where("authors.author_name like '%".$author_id."%' ");
+    //         }else{
+    //             $this->db->where("authors.author_name like '%".$author_id."%' ");
+    //         }
+    //     }
+        
+       
+      
+    //   $records = $this->db->get('book_authors')->result();
+
+        if ($book_title) {
+            $this->db->like('books.book_title', $book_title);
+        }
+        $this->db->select('*, GROUP_CONCAT(authors.author_name SEPARATOR ", ") as authors,categories.category_name as category_name');
+        $this->db->join('book_categories', 'books.id=book_categories.book_id', 'left');
+        $this->db->join('categories', 'book_categories.category_id=categories.id', 'left');
+        $this->db->join('book_authors', 'books.id=book_authors.book_id', 'left');
+        $this->db->join('authors', 'authors.id=book_authors.author_id', 'left');
+        $this->db->group_by('books.id');
+        
+        $query = $this->db->get("books");
+        if($author_id){
+            // $query = $this->db->query("select * from book_authors as ba
+            // left join books as b on b.id=ba.book_id
+            // left join authors as a on a.id=ba.author_id
+            // where author_name like %.$author_id.%
+            // ");
+            $this->db->select('*');
+            $this->db->join("books","books.id=book_authors.book_id","left");
+            $this->db->join("authors","authors.id=book_authors.author_id","left");
+            $this->db->where("authors.author_name like '%".$author_id."%' ");
+          
+          $query = $this->db->get('book_authors');
+        }
+        
+        if ($query->num_rows() > 0) {
+            foreach ($query->result() as $row) {
+                $data[] = $row;
+            }
+            return $data;
+        }
+        return false;
+    }
     public function getBookByID($id)
     {
         $this->db->select('*, GROUP_CONCAT(authors.author_name SEPARATOR ", ") as authors');
@@ -165,6 +231,59 @@ Class Home_model extends CI_Model
         return $response;
       }
       public function getbooksbysimilarcatid($cat_id = null)
+      {
+          # code...
+            $this->db->select('*');
+            $this->db->join('books', 'books.id=book_categories.book_id', 'left');
+            // $this->db->join('book_authors', 'books.id=book_authors.book_id', 'left');
+            // $this->db->join('authors', 'authors.id=book_authors.author_id', 'left');
+            // $this->db->group_by('books.id');
+            $query = $this->db->get_where('book_categories', array('category_id' => $cat_id));
+            // $this->db->where("category_id=?",$cat_id);
+          
+            // return $query->result();
+            if ($query->num_rows() > 0) {
+                foreach ($query->result() as $row) {
+                    $data[] = $row;
+                }
+                return $data;
+            }
+            return false;
+          
+      }
+      public function getAllAuthors_id(){
+    
+        $this->db->select('*');
+        $this->db->order_by('RAND()');
+        $query = $this->db->get('authors');
+        // $query = $this->db->order_by('RAND()')->get("authors");
+        if ($query->num_rows() > 0) {
+            
+            return $query->result();
+        }
+        return false;
+    }
+    public function getSearchResultsByAuthors($postData){
+ 
+        $response = array();
+      
+        $this->db->select('*');
+    
+        if($postData['search'] ){
+            $this->db->join("books","books.id=book_authors.book_id","left");
+            $this->db->join("authors","authors.id=book_authors.author_id","left");
+            $this->db->where("authors.author_name like '%".$postData['search']."%' ");
+          
+          $records = $this->db->get('book_authors')->result();
+    
+          foreach($records as $row ){
+            $response[] = array("value"=>$row->id,"label"=>$row->book_title);
+          }
+     
+        }
+        return $response;
+      }
+      public function getcomingsoonbooks($cat_id = null)
       {
           # code...
             $this->db->select('*');

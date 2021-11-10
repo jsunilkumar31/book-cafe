@@ -23,9 +23,7 @@
                         <iframe width="1280" height="720" src="https://www.youtube.com/embed/e46AGbBctQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                
                 </div>
             </div>
         </div>
@@ -312,7 +310,7 @@ $("li").on("click", function(e){
   if ($(this).hasClass("active")){
     goToSection(i);
   } else {
-    alert("Please complete previous sections first.");
+    // alert("Please complete previous sections first.");
   }
 });
  
@@ -522,7 +520,7 @@ $("li").on("click", function(e){
                 </div>
             </div>
             <!-- sunil added code -->
-            <div class="col-lg-12">
+            <div class="col-lg-12 is-hidden">
                      <div class="iq-card-transparent mb-0">
                         <div class="d-block text-center">
                            <h2 class="mb-3">Search by Book Name</h2>    
