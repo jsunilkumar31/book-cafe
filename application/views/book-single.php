@@ -60,7 +60,7 @@
                 }
 
                 .bk-info button {
-                    background: #FC756F;
+                    background: #182246;
                     border: none;
                     color: #fff;
                     display: inline-block;
@@ -82,7 +82,7 @@
 
                 .no-touch .bk-info button:hover,
                 .bk-info button.bk-active {
-                    background: #d0544e;
+                    background: #fa7c04;
                 }
 
                 .bk-list li .bk-book {
@@ -865,7 +865,7 @@
                 </div>
             </div>
             
-            <div class="col-lg-12 ">
+            <div class="col-lg-12 is-hidden">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div
                         class="iq-card-header d-flex justify-content-between align-items-center position-relative mb-0 trendy-detail">
@@ -1098,7 +1098,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 ">
+            <div class="col-lg-12 is-hidden">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
                         <div class="iq-header-title">

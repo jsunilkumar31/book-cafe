@@ -174,10 +174,10 @@ la la-magic"></i>Start-Up / Entrepreneurship</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <a href="<?= base_url('book-plan'); ?>"><i class="ri-function-line"></i><span>browse by author/publisor</span></a>
+                                <a href="<?= base_url('Search_by_author'); ?>"><i class="ri-function-line"></i><span>browse by author/publisor</span></a>
                             </li>
                             <li>
-                                <a href="<?= base_url('book-plan'); ?>"><i class="ri-function-line"></i><span>Coming soon</span></a>
+                                <a href="<?= base_url('coming_soon_books'); ?>"><i class="ri-function-line"></i><span>Coming soon</span></a>
                             </li>
                             <li <?php
                             if ($this->uri->segment(1) == "book-plan") {
