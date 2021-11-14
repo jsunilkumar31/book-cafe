@@ -153,6 +153,13 @@ la la-magic"></i>Start-Up / Entrepreneurship</a></li>
                                         echo 'class="active active-menu"';
                                     }
                                     ?>><a href="<?= base_url('category/17'); ?>"><i class="ri-book-2-line"></i>E-Books</a></li>
+
+                                    <li <?php
+                                    if ($this->uri->segment(2) == "23" && $secondMenu == true) {
+                                        echo 'class="active active-menu"';
+                                    }
+                                    ?>><a href="<?= base_url('wishlist/23'); ?>"><i class="ri-heart-fill"></i>Wishlist</a></li>
+
                                     <li class="d-none" <?php
                                     if ($this->uri->segment(2) == "1" && $secondMenu == true) {
                                         echo 'class="active active-menu"';
