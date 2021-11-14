@@ -199,6 +199,12 @@ textarea + .valid {
   /* color: #fa7c04; */
 }
 
+.modal-dialog {
+    max-width: 776px !important;
+}
+.modal-body{
+    padding: 0px !important;
+}
 </style>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myquestionmodal">questions</button>

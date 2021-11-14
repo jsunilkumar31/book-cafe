@@ -85,5 +85,72 @@ class New_member extends MY_Controller {
         $this->load->view('template_morden/footer', $this->data);
 	}
 
+    public function register(){
+        $this->form_validation->set_rules('first_name', 'First Name', 'required');
+
+        $mailData = array(
+            'first_name' => $this->input->post('first_name'),
+            'last_name' => $this->input->post('last_name'),
+            'mobile_number' => $this->input->post('mobile_number'),
+            'email' => $this->input->post('email'),
+            'company_name' => $this->input->post('company'),
+            'address' => $this->input->post('address'),
+            'postal_code' => $this->input->post('postal_code')
+        );
+
+        $send = $this->sendEmail($mailData);
+
+        if ($send) {
+            echo 'success';
+            // redirect('new_member');
+        }else{
+            echo 'failed';
+            redirect('new_member');
+        }
+    }
+
+    private function sendEmail($mailData){
+        // Load the email library
+        
+        $email_config = Array(
+            'protocol'  => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => '465',
+            'smtp_user' => 'kdwebstudio@gmail.com',
+            'smtp_pass' => 'suru@magnus7',
+            'mailtype'  => 'html',
+            'starttls'  => true,
+            'newline'   => "\r\n"
+        );
+        $this->load->library('email', $email_config);  
+        
+        // Mail config
+        $to = 'surendra.sonit@gmail.com';
+        $from = 'kdwebstudio@gmail.com';
+        $fromName = 'Surendra Soni';
+        $mailSubject = 'New Member Request Submitted by '.$mailData['first_name'];
+        
+        // Mail content
+        $mailContent = '
+            <h2>New Member Request Submitted</h2>
+            <p><b>First Name: </b>'.$mailData['first_name'].'</p>
+            <p><b>Last Name: </b>'.$mailData['last_name'].'</p>
+            <p><b>Mobile: </b>'.$mailData['mobile_number'].'</p>
+            <p><b>Email: </b>'.$mailData['email'].'</p>
+            <p><b>Company Name: </b>'.$mailData['company_name'].'</p>
+            <p><b>Address: </b>'.$mailData['address'].'</p>
+            <p><b>Postal Code: </b>'.$mailData['postal_code'].'</p>
+        ';
+            
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+        $this->email->to($to);
+        $this->email->from($from, $fromName);
+        $this->email->subject($mailSubject);
+        $this->email->message($mailContent);
+        
+        // Send email & return status
+        return $this->email->send()?true:false;
+    }
 	
 }

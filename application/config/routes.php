@@ -64,5 +64,6 @@ $route['view_ebook/:num'] = 'home/view_ebook/$1';
 $route['view_book/:num'] = 'home/view_book/$1';
 // creator: Darshan - to view book pdf in the same page
 
-// hello
-// hi
+//creator: Darshan
+$route['wishlist/(:any)'] = 'home/wishlist/$1';
+$route['addBookToWishlist']['post']= 'home/addBookToWishlist';
