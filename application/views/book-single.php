@@ -652,12 +652,18 @@
                                     </div>
                                     <div class="mb-3 d-blockx ">
                                         <h4>Amazon Ratings : </h4>
+                                        
                                         <span class="font-size-20 text-warning">
                                             <?php 
+                                                $amazon_ratingmoduleofstart=0;
+                                                $amazon_ratingroundvaluestar=0;
                                             if ($book->amazon_rating == "" || $book->amazon_rating == 0)
                                                 # code...
                                                 echo "Ratings not available";
-                                           
+                                            if($book->amazon_rating!=""){
+                                                $amazon_ratingroundvaluestar=floor($book->amazon_rating);
+                                                $amazon_ratingmoduleofstart=$book->amazon_rating-$amazon_ratingroundvaluestar;
+                                            }
                                             if ($book->amazon_rating > 5) {
                                                 # code...
                                                 for ($i=0; $i < 5; $i++):
@@ -666,11 +672,17 @@
                                                     <i class="fa fa-star mr-1"></i>
                                                     <?php endfor; ?>
                                                 <?php }else{
-                                                for ($i=0; $i < $book->amazon_rating; $i++):
+                                                for ($i=0; $i < $amazon_ratingroundvaluestar; $i++):
                                                     # code...
                                                     ?>
                                                     <i class="fa fa-star mr-1"></i>
-                                                    <?php endfor;}
+                                                    <?php endfor;
+                                                    if($amazon_ratingmoduleofstart){
+                                                    ?> 
+                                                    <i class="fa fa-star-half-o"></i>  
+                                                    <?php   
+                                                    }
+                                                    }
                                             ?>
                                         </span>
                                     </div>
@@ -678,9 +690,17 @@
                                         <h4>Goodreads Ratings: </h4>
                                         <span class="font-size-20 text-warning">
                                         <?php 
+                                        // echo $book->goodreads_rating;
+                                        $goodreads_ratingroundvaluestar=0;
+                                        $goodreads_ratingmoduleofstart=0;
+                                         
                                             if ($book->goodreads_rating == "" || $book->goodreads_rating == 0 )
                                                 # code...
                                                 echo "Ratings not available";
+                                            if($book->goodreads_rating!=""){
+                                                $goodreads_ratingroundvaluestar=floor($book->goodreads_rating);
+                                                $goodreads_ratingmoduleofstart=$book->goodreads_rating-$goodreads_ratingroundvaluestar;
+                                            }
                                             if ($book->goodreads_rating > 5) {
                                                 # code...
                                                 for ($i=0; $i < 5; $i++):
@@ -689,11 +709,17 @@
                                                     <i class="fa fa-star mr-1"></i>
                                                     <?php endfor; ?>
                                                 <?php }else{
-                                                for ($i=0; $i < $book->goodreads_rating; $i++):
+                                                for ($i=0; $i < $goodreads_ratingroundvaluestar; $i++):
                                                     # code...
                                                     ?>
-                                                    <i class="fa fa-star mr-1"></i>
-                                                    <?php endfor;}
+                                                   <i class="fa fa-star mr-1"></i>
+                                                    <?php endfor;
+                                                    if($goodreads_ratingmoduleofstart){
+                                                    ?> 
+                                                    <i class="fa fa-star-half-o"></i>  
+                                                    <?php   
+                                                    }
+                                                    }
                                             ?>
                                         </span>
                                     </div>
@@ -767,6 +793,286 @@
                     </div>
                 </div>
             </div>
+            <!-- sunil added code -->
+            <style>
+                
+                .progress-label-left
+                {
+                    /* float: left; */
+                    margin-right: 0.5em;
+                    line-height: 1em;
+                }
+                .progress-label-right
+                {
+                    float: right;
+                    margin-left: 0.3em;
+                    line-height: 1em;
+                }
+                .star-light
+                {
+                    color:#e9ecef;
+                }
+                .card {
+                    border-radius: 5px;
+                    background-color: #fff;
+                    padding-left: 60px;
+                    padding-right: 60px;
+                    margin-top: 30px;
+                    padding-bottom: 30px
+                }
+
+                .rating-box {
+                    width: 130px;
+                    height: 130px;
+                    margin-right: auto;
+                    margin-left: auto;
+                    background-color: #FBC02D;
+                    color: #fff
+                }
+
+                .rating-label {
+                    font-weight: bold
+                }
+
+                .rating-bar {
+                    width: 300px;
+                    padding: 8px;
+                    border-radius: 5px
+                }
+
+                .bar-container {
+                    width: 100%;
+                    background-color: #f1f1f1;
+                    text-align: center;
+                    color: white;
+                    border-radius: 20px;
+                    cursor: pointer;
+                    margin-bottom: 5px
+                }
+
+                .bar-5 {
+                    width: 70%;
+                    height: 13px;
+                    background-color: #FBC02D;
+                    border-radius: 20px
+                }
+
+                .bar-4 {
+                    width: 30%;
+                    height: 13px;
+                    background-color: #FBC02D;
+                    border-radius: 20px
+                }
+
+                .bar-3 {
+                    width: 20%;
+                    height: 13px;
+                    background-color: #FBC02D;
+                    border-radius: 20px
+                }
+
+                .bar-2 {
+                    width: 10%;
+                    height: 13px;
+                    background-color: #FBC02D;
+                    border-radius: 20px
+                }
+
+                .bar-1 {
+                    width: 0%;
+                    height: 13px;
+                    background-color: #FBC02D;
+                    border-radius: 20px
+                }
+
+                td {
+                    padding-bottom: 10px
+                }
+
+                .star-active {
+                    /* color: #FBC02D; */
+                    margin-top: 10px;
+                    margin-bottom: 10px
+                }
+
+                .star-active:hover {
+                    color: #F9A825;
+                    cursor: pointer
+                }
+
+                .star-inactive {
+                    color: #CFD8DC;
+                    margin-top: 10px;
+                    margin-bottom: 10px
+                }
+
+                .blue-text {
+                    color: #0091EA
+                }
+
+                .content {
+                    font-size: 18px
+                }
+
+                .profile-pic {
+                    width: 90px;
+                    height: 90px;
+                    border-radius: 100%;
+                    margin-right: 30px
+                }
+
+                .pic {
+                    width: 80px;
+                    height: 80px;
+                    margin-right: 10px
+                }
+
+                .vote {
+                    cursor: pointer
+                }
+                .timeline-dots {
+                    position: absolute;
+                    top: 30px;
+                    border: 3px solid var(--iq-primary);
+                    border-radius: 90px;
+                    padding: 5px;
+                    background: var(--iq-white);
+                    height: 40px;
+                    width: 40px;
+                    line-height: 25px;
+                    text-align: center;
+                }
+                .timeline-dots h3{
+                    line-height: 20px;      
+                }
+            </style>
+            
+            <div class="col-lg-12">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                    <h4 class="card-title mb-0">Reviews </h4>
+                        <div class="iq-header-title">
+                            
+                            <button type="button" name="add_review" id="add_review" class="btn btn-primary" data-toggle="modal" data-target="#myreviewmodal" style="float:right;">ADD Review</button>
+                        </div>
+                    </div>
+                    
+                    <div class="q-card-body single-similar-contens" id="review_rating_value_check" style="display:none;">
+                        <div class="container-fluid px-1 py-5 mx-auto">
+                            <div class="row">
+                            <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-6 text-center">
+                                            <h1 class="text-warning mt-4 mb-4">
+                                                <b><span id="average_rating">0.0</span> / 5</b>
+                                            </h1>
+                                            <div class="mb-3">
+                                            <span class="fa fa-star star-active main_star mx-1" ></span>
+                                            <span class="fa fa-star star-active main_star mx-1" ></span>
+                                            <span class="fa fa-star star-active main_star mx-1" ></span>
+                                            <span class="fa fa-star star-active main_star mx-1" ></span>
+                                            <span class="fa fa-star star-active main_star mx-1" ></span>
+                                            <i class="fa fa-star-half-o star-active half_main_star"></i>  
+                                            </div>
+                                            <h3><span id="total_review">0</span> Review</h3>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <p>
+                                                <div class="progress-label-left"><b>5</b> 
+                                                <span class="fa fa-star star-active text-warning mx-1" ></span>
+                                                </div>
+
+                                                <div class="progress-label-right">(<span id="total_five_star_review">0</span>)</div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="five_star_progress"></div>
+                                                </div>
+                                            </p>
+                                            <p>
+                                                <div class="progress-label-left"><b>4</b> 
+                                                <span class="fa fa-star star-active text-warning mx-1" ></span>
+                                                </div>
+                                                
+                                                <div class="progress-label-right">(<span id="total_four_star_review">0</span>)</div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="four_star_progress"></div>
+                                                </div>               
+                                            </p>
+                                            <p>
+                                                <div class="progress-label-left"><b>3</b>   <span class="fa fa-star star-active text-warning mx-1" ></span>
+                                                </div>
+                                                
+                                                <div class="progress-label-right">(<span id="total_three_star_review">0</span>)</div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="three_star_progress"></div>
+                                                </div>               
+                                            </p>
+                                            <p>
+                                                <div class="progress-label-left"><b>2</b>   <span class="fa fa-star star-active text-warning mx-1" ></span>
+                                                </div>
+                                                
+                                                <div class="progress-label-right">(<span id="total_two_star_review">0</span>)</div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="two_star_progress"></div>
+                                                </div>               
+                                            </p>
+                                            <p>
+                                                <div class="progress-label-left"><b>1</b>   <span class="fa fa-star star-active text-warning mx-1" ></span>
+                                                </div>
+                                                
+                                                <div class="progress-label-right">(<span id="total_one_star_review">0</span>)</div>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="one_star_progress"></div>
+                                                </div>               
+                                            </p>
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                    <div class="col-md-12" id="review_content" style="height: 600px; overflow: auto;">
+                                        
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="myreviewmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+	        	<h5 class="modal-title">Submit Review</h5>
+	        	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          		<span aria-hidden="true">&times;</span>
+	        	</button>
+	      	</div>
+                <div class="modal-body">
+                    <div class="embed-responsive">
+                    <h4 class="text-center ">
+                    <span class="fa fa-star star-active submit_star mx-1" id="submit_star_1" data-rating="1"></span>
+	        		<span class="fa fa-star star-active submit_star mx-1" id="submit_star_2" data-rating="2"></span>
+                    <span class="fa fa-star star-active submit_star mx-1" id="submit_star_3" data-rating="3"></span>
+                    <span class="fa fa-star star-active submit_star mx-1" id="submit_star_4" data-rating="4"></span>
+                    <span class="fa fa-star star-active submit_star mx-1" id="submit_star_5" data-rating="5"></span>
+	        	</h4>
+	        	<div class="form-group">
+	        		<input type="text" name="user_name" id="user_name" class="form-control" placeholder="Enter Your Name" />
+	        	</div>
+	        	<div class="form-group">
+	        		<textarea name="user_review" id="user_review" class="form-control" placeholder="Type Review Here"></textarea>
+	        	</div>
+	        	<div class="form-group text-center mt-4">
+	        		<button type="button" class="btn btn-primary" id="save_review">Submit</button>
+	        	</div>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+        </div>
+            <!-- sunil added code -->
             <div class="col-lg-12">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
@@ -864,7 +1170,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="col-lg-12 is-hidden">
                 <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
                     <div
@@ -1312,3 +1618,212 @@
 
 			});
 		</script>
+
+<script>
+
+$(document).ready(function(){
+
+	var rating_data = 0;
+
+    $(document).on('mouseenter', '.submit_star', function(){
+
+        var rating = $(this).data('rating');
+
+        reset_background();
+
+        for(var count = 1; count <= rating; count++)
+        {
+
+            $('#submit_star_'+count).addClass('text-warning');
+
+        }
+
+    });
+
+    function reset_background()
+    {
+        for(var count = 1; count <= 5; count++)
+        {
+
+            $('#submit_star_'+count).addClass('star-light');
+
+            $('#submit_star_'+count).removeClass('text-warning');
+
+        }
+    }
+
+    $(document).on('mouseleave', '.submit_star', function(){
+
+        reset_background();
+
+        for(var count = 1; count <= rating_data; count++)
+        {
+
+            $('#submit_star_'+count).removeClass('star-light');
+
+            $('#submit_star_'+count).addClass('text-warning');
+        }
+
+    });
+
+    $(document).on('click', '.submit_star', function(){
+
+        rating_data = $(this).data('rating');
+
+    });
+
+    $('#save_review').click(function(){
+
+        var user_name = $('#user_name').val();
+
+        var user_review = $('#user_review').val();
+
+        if(user_name == '' || user_review == '')
+        {
+            alert("Please Fill Both Field");
+            return false;
+        }
+        else
+        {
+            $.ajax({
+                url:"<?=base_url()?>index.php/Books/submit_reviews",
+                method:"POST",
+                data:{rating_data:rating_data, user_name:user_name, user_review:user_review, book_id:<?php echo $book->book_id;?>},
+                success:function(data)
+                {
+                    $('#myreviewmodal').modal('hide');
+
+                    load_rating_data();
+                    location.reload();
+                    // alert(data);
+                }
+            })
+        }
+
+    });
+
+    load_rating_data();
+
+    function load_rating_data()
+    {
+        $.ajax({
+            url:"<?=base_url()?>index.php/Books/load_reviews",
+            method:"POST",
+            data:{book_id:<?php echo $book->book_id;?>},
+            dataType:"JSON",
+            success:function(data)
+            {
+                $('#average_rating').text(data.average_rating);
+                $('#total_review').text(data.total_review);
+
+                var count_star = 0;
+                exact_value_start=Math.floor(data.average_rating);
+                dec_of_start=data.average_rating-exact_value_start;
+                // console.log(data.average_rating);
+                if(data.average_rating != 0 || data.average_rating != ""){
+                    
+                    // $('#review_rating_value_check').hide();
+                    $("#review_rating_value_check").show();
+                }
+                $('.main_star').each(function(){
+                    count_star++;
+                    if(exact_value_start >= count_star)
+                    {
+                        $(this).addClass('text-warning');
+                        $(this).addClass('star-light');
+                    }else{
+                        $(this).removeClass('fa-star');
+                        $(this).removeClass('mx-1');
+                    }
+                    
+                });
+                $('.half_main_star').each(function(){
+                    if(dec_of_start){
+                        $(this).addClass('text-warning');
+                        $(this).addClass('star-light'); 
+                    }else{
+                        $(this).removeClass('fa-star-half-o');
+                        
+                    }
+                    
+                });
+
+                $('#total_five_star_review').text(data.five_star_review);
+
+                $('#total_four_star_review').text(data.four_star_review);
+
+                $('#total_three_star_review').text(data.three_star_review);
+
+                $('#total_two_star_review').text(data.two_star_review);
+
+                $('#total_one_star_review').text(data.one_star_review);
+
+                $('#five_star_progress').css('width', (data.five_star_review/data.total_review) * 100 + '%');
+
+                $('#four_star_progress').css('width', (data.four_star_review/data.total_review) * 100 + '%');
+
+                $('#three_star_progress').css('width', (data.three_star_review/data.total_review) * 100 + '%');
+
+                $('#two_star_progress').css('width', (data.two_star_review/data.total_review) * 100 + '%');
+
+                $('#one_star_progress').css('width', (data.one_star_review/data.total_review) * 100 + '%');
+
+                if(data.review_data.length > 0)
+                {
+                    var html = '';
+
+                    for(var count = 0; count < data.review_data.length; count++)
+                    {
+                        html += '<div class="row mb-3 mt-4">';
+                        html += '<div class="col-sm-1"></div>';
+                        html += '<div class="col-sm-1"><div class="timeline-dots border-primary"><h3 class="text-center">'+data.review_data[count].user_name.charAt(0)+'</h3></div></div>';
+
+                        html += '<div class="col-sm-9">';
+
+                        html += '<div class="card">';
+
+                        html += '<div class="card-header"><b>'+data.review_data[count].user_name+'</b></div>';
+
+                        html += '<div class="card-body">';
+
+                        for(var star = 1; star <= 5; star++)
+                        {
+                            var class_name = '';
+
+                            if(data.review_data[count].rating >= star)
+                            {
+                                class_name = 'text-warning';
+                            }
+                            else
+                            {
+                                class_name = 'star-light';
+                            }
+                            
+                            html += '<span class="fa fa-star star-active '+class_name+' mr-1"></span>';
+                        }
+
+                        html += '<br />';
+
+                        html += data.review_data[count].user_review;
+
+                        html += '</div>';
+
+                        html += '<div class="card-footer text-right">On '+data.review_data[count].datetime+'</div>';
+
+                        html += '</div>';
+
+                        html += '</div>';
+                        html += '<div class="col-sm-1"></div>';
+
+                        html += '</div>';
+                    }
+
+                    $('#review_content').html(html);
+                }
+            }
+        })
+    }
+
+});
+
+</script>
