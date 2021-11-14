@@ -15,8 +15,8 @@
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Promo Video</button>
 
         <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
+        <div class="modal bd-example-modal-lg fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                 <div class="modal-body">
                     <div class="embed-responsive embed-responsive-16by9">
@@ -28,304 +28,171 @@
             </div>
         </div>
 <style>
-#signup {
-  height: auto;
-  padding: 20px;
-  background: #fff;
-  margin: 80px auto;
-  position: relative;
-  min-height: 300px;
-}
-#fieldsets {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-textarea {
-  display: block;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  padding: 8px;
-  margin-bottom: 8px;
-  position: relative;
-}
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus,
-textarea:focus {
-  outline: none;
-  border: 1px solid #22918b;
-}
-input[type="radio"] {
-  margin: 6px;
-  display: inline-block;
-}
-fieldset {
-  border: none;
-  position: absolute;
-  left: -640px;
-  width: 600px;
-  padding: 10px 0;
-  transition: all 0.3s linear;
-  -webkit-transition: all 0.3s linear;
-  -moz-transition: all 0.3s linear;
-  -ms-transition: all 0.3s linear;
-  opacity: 0;
-}
-fieldset.current {
-  left: 20px;
-  opacity: 1;
-}
-fieldset.next {
-  left: 640px;
-}
-input[type="submit"] {
-  display: none;
-  border: none;
-}
-#section-tabs {
-  font-size: 0.8em;
-  height: 50px;
-  position: relative;
-  margin-top: -50px;
-  margin-bottom: 50px;
-  padding: 0;
-  font-weight: bold;
-  list-style: none;
-  text-transform: uppercase;
-}
-#section-tabs li {
-  color: #a7a7a7;
-  cursor: not-allowed;
-  border-left: 1px solid #aaa;
-  text-decoration: none;
-  padding: 0 6px;
-  float: left;
-  width: 25%;
-  box-sizing: border-box;
-  text-align: center;
-  font-weight: bold;
-  line-height: 30px;
-  background: #ddd;
-  position: relative;
-}
-#section-tabs li span {
-  color: #bababa;
-}
-#section-tabs li.active {
-  color: #444;
-  cursor: pointer;
-}
-#section-tabs li:after {
-  content: "";
-  display: block;
-  margin-left: 0;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-#section-tabs li.current {
-  opacity: 1;
-  background: #fff;
-  z-index: 999;
-  border-left: none;
-}
-#section-tabs li.current:after {
-  border: 15px solid transparent;
-  border-left: 15px solid #fa7c04;
-}
-.error {
-  color: #bf2424;
-  display: block;
-}
-input.error,
-textarea.error {
-  border-color: #bf2424;
-}
-input.error:focus,
-textarea.error:focus {
-  border-color: #bf2424;
-}
-label.error {
-  margin-bottom: 20px;
-}
-input.valid {
-  color: green;
-}
-label.valid {
-  position: absolute;
-  right: 20px;
-}
-input + .valid,
-textarea + .valid {
-  display: none;
-}
-.valid + .valid {
-  display: inline;
-  position: absolute;
-  right: 10px;
-  margin-top: -36px;
-  color: green;
-}
-#myquestionmodal .btn {
-  border: none;
-  padding: 8px;
-  background: #fa7c04;
-  cursor: pointer;
-  transition: all 0.3s;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  color: #fff;
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-family: "Merriweather Sans", sans-serif;
-}
-#myquestionmodal .btn:hover {
-  background: #fa7c04;
-  /* color: #fa7c04; */
-}
 
 </style>
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myquestionmodal">questions</button>
 
 <!-- Modal -->
-<div class="modal fade" id="myquestionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
+<div class="modal  fade" id="myquestionmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog " role="document">
         <div class="modal-content">
         <div class="modal-body">
-            <div class="embed-responsive ">
-                <form id="signup" action="somewhere" method="POST">
-                    <ul id="section-tabs">
-                    <li class="current active"><span>1.</span> Creds</li>
-                    <li><span>2.</span> Deets</li>
-                    <li><span>3.</span> Settings</li>
-                    <li><span>4.</span> Last Words</li>
-                    </ul>
-                <div id="fieldsets">
-                <fieldset class="current">
-                    <label for="email">Email:</label>
-                    <input name="email" type="email" class="required email" />
-                    <label name="password" for="password">Password:</label>
-                    <input type="password" minlength="10" class="required">
-                </fieldset>
-                <fieldset class="next">
-                    <label for="username">Username:</label>
-                    <input name="username" type="text">
-                    <label for="bio">Short Bio:</label>
-                    <textarea name="bio" class="required"></textarea>
-                </fieldset>
-                <fieldset class="next">
-                    <label for="interests">Basic Interests:</label>
-                    <textarea name="bio"></textarea>
-                    <p>Receive newsletter?<br>
-                    <input type="radio" name="newsletter" value="yes"><label for="newsletter">yes</label>
-                    <input type="radio" name="newsletter" value="no"><label for="newsletter">no</label>
-                    </p>
-                </fieldset>
-                <fieldset class="next">
-                    <label for="referrer">Referred by:</label>
-                    <input type="text" name="referrer">
-                    <label for="phone">Daytime Phone:</label>
-                    <input type="tel" name="phone">
-                </fieldset>
-                <a class="btn" id="next">Next Section ▷</a>
-                <input type="submit" class="btn">
-                </div>
-                </form>
-            </div>
+        <div class="col-sm-12 col-lg-12">
+                     <div class="iq-card">
+                        <div class="iq-card-header d-flex justify-content-between">
+                           <div class="iq-header-title">
+                              <h4 class="card-title">Don't know what to read</h4>
+                           </div>
+                        </div>
+                        <div class="iq-card-body">
+                           <form id="form-wizard1" class="text-center mt-4" >
+                              <ul id="top-tab-list" class="p-0">
+                                 <li class="active" id="account">
+                                    <a href="javascript:void();">
+                                    <!-- <i class="ri-questionnaire-line"></i></i> -->
+                                    <i>1</i>
+                                    </a>
+                                 </li>
+                                 <li id="personal">
+                                    <a href="javascript:void();">
+                                    <!-- <i class="ri-questionnaire-line"></i> -->
+                                    <i>2</i>
+                                    </a>
+                                 </li>
+                                 <li id="payment">
+                                    <a href="javascript:void();">
+                                    <!-- <i class="ri-questionnaire-line"></i> -->
+                                    <i>3</i>
+                                    </a>
+                                 </li>
+                                 <li id="confirm">
+                                    <a href="javascript:void();">
+                                    <i class="ri-check-fill"></i>
+                                    <!-- <span>Finish</span> -->
+                                    </a>
+                                 </li>
+                              </ul>
+                              <!-- fieldsets -->
+                              <fieldset>
+                                 <div class="form-card text-left">
+                                    <div class="row">
+                                       <div class="col-md-6">
+                                          <div class="form-group">
+                                          <label>Question no 1</label>
+                                          <div class="iq-card-body">
+                           
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio6" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio6"> One </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio7" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio7"> Two </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio8" name="customRadio-1" class="custom-control-input" checked="">
+                                                <label class="custom-control-label" for="customRadio8"> Three </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio9" name="customRadio-1" class="custom-control-input" checked="">
+                                                <label class="custom-control-label" for="customRadio9"> four </label>
+                                            </div>
+                                            </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <button type="button" name="next" class="btn btn-primary next action-button float-right" value="Next">Next</button>
+                              </fieldset>
+                              <fieldset>
+                              <div class="form-card text-left">
+                                    <div class="row">
+                                       <div class="col-md-6">
+                                          <div class="form-group">
+                                          <label>Question no 2</label>
+                                          <div class="iq-card-body">
+                           
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio6" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio6"> One </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio7" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio7"> Two </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio8" name="customRadio-1" class="custom-control-input" checked="">
+                                                <label class="custom-control-label" for="customRadio8"> Three </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio9" name="customRadio-1" class="custom-control-input" checked="">
+                                                <label class="custom-control-label" for="customRadio9"> four </label>
+                                            </div>
+                                            </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <button type="button" name="next" class="btn btn-primary next action-button float-right" value="Next">Next</button>
+                                 <button type="button" name="previous" class="btn btn-dark previous action-button-previous float-right mr-3" value="Previous">Previous</button>
+                              </fieldset>
+                              <fieldset>
+                              <div class="form-card text-left">
+                                    <div class="row">
+                                       <div class="col-md-6">
+                                          <div class="form-group">
+                                          <label>Question no 3</label>
+                                          <div class="iq-card-body">
+                           
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio6" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio6"> One </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio7" name="customRadio-1" class="custom-control-input">
+                                                <label class="custom-control-label" for="customRadio7"> Two </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio8" name="customRadio-1" class="custom-control-input" checked="">
+                                                <label class="custom-control-label" for="customRadio8"> Three </label>
+                                            </div>
+                                            <div class="custom-control custom-radio ">
+                                                <input type="radio" id="customRadio9" name="customRadio-1" class="custom-control-input" checked="">
+                                                <label class="custom-control-label" for="customRadio9"> four </label>
+                                            </div>
+                                            </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <a href="<?php echo base_url(); ?>Search_by_author" type="button" name="next" class="btn btn-primary next action-button float-right" value="Submit">Submit</a>
+                                 <button type="button" name="previous" class="btn btn-dark previous action-button-previous float-right mr-3" value="Previous">Previous</button>
+                              </fieldset>
+                              <fieldset>
+                                 <div class="form-card">
+                                    <br><br>
+                                    <h2 class="text-success text-center"><strong>Thanks you !</strong></h2>
+                                    <br>
+                                    
+                                 </div>
+                              </fieldset>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+
         </div>
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        </div> -->
         </div>
     </div>
 </div>
 
 <script>
 
-$("body").on("keyup", "form", function(e){
-  if (e.which == 13){
-    if ($("#next").is(":visible") && $("fieldset.current").find("input, textarea").valid() ){
-      e.preventDefault();
-      nextSection();
-      return false;
-    }
-  }
-});
- 
- 
-$("#next").on("click", function(e){
-  console.log(e.target);
-  nextSection();
-});
- 
-$("form").on("submit", function(e){
-  if ($("#next").is(":visible") || $("fieldset.current").index() < 3){
-    e.preventDefault();
-  }
-});
- 
-function goToSection(i){
-  $("fieldset:gt("+i+")").removeClass("current").addClass("next");
-  $("fieldset:lt("+i+")").removeClass("current");
-  $("li").eq(i).addClass("current").siblings().removeClass("current");
-  setTimeout(function(){
-    $("fieldset").eq(i).removeClass("next").addClass("current active");
-      if ($("fieldset.current").index() == 3){
-        $("#next").hide();
-        $("input[type=submit]").show();
-      } else {
-        $("#next").show();
-        $("input[type=submit]").hide();
-      }
-  }, 80);
- 
-}
- 
-function nextSection(){
-  var i = $("fieldset.current").index();
-  if (i < 3){
-    $("li").eq(i+1).addClass("active");
-    goToSection(i+1);
-  }
-}
- 
-$("li").on("click", function(e){
-  var i = $(this).index();
-  if ($(this).hasClass("active")){
-    goToSection(i);
-  } else {
-    // alert("Please complete previous sections first.");
-  }
-});
- 
- 
-
-
 </script>
-
-
-
-
-
-
-
-
 
 
         <div class="row">
@@ -914,7 +781,342 @@ $("li").on("click", function(e){
                     </div>
                 </div>
             </div> 
+            <style>
+                
+                #testimonials .card {
+                    background: #fff;
+                    box-shadow: 0 8px 30px -7px #c9dff0;
+                    margin: 20px;
+                    padding: 0 10px;
+                    border-radius: 20px;
+                    border: 0;
+                    }
+                    #testimonials .card .card-img-top {
+                    max-width: 100px;
+                    border-radius: 50%;
+                    margin: 15px auto 0;
+                    box-shadow: 0 8px 20px -4px #95abbb;
+                    width: 100px;
+                    height: 100px;
+                    }
+                    #testimonials .card h5 {
+                    color: #01b0f8;
+                    font-size: 21px;
+                    line-height: 1.3;
+                    }
+                    #testimonials .card h5 span {
+                    font-size: 18px;
+                    color: #666666;
+                    }
+                    #testimonials .card p {
+                    font-size: 18px;
+                    color: #555;
+                    padding-bottom: 15px;
+                    }
+                    #testimonials .active {
+                    opacity: 0.5;
+                    transition: all 0.3s;
+                    }
+                    #testimonials .center {
+                    opacity: 1;
+                    }
+                    #testimonials .center h5 {
+                    font-size: 24px;
+                    }
+                    #testimonials .center h5 span {
+                    font-size: 20px;
+                    }
+                    #testimonials .center .card-img-top {
+                    max-width: 100%;
+                    height: 120px;
+                    width: 120px;
+                    }
+
+                    @media (max-width: 767px) {
+                    #testimonials {
+                        margin-top: 20px;
+                    }
+                    }
+                    
+            </style>
             <!-- sunil added code -->
+            <div class="col-lg-12" id="testimonials">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">Testimonial</h4>
+                        </div>
+                        <!-- <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                        </div> -->
+                    </div>                         
+                    <div class="iq-card-body favorites-contens">
+                        <ul id="single-similar-slider2">
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12" id="testimonials">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">Partners</h4>
+                        </div>
+                        <!-- <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                        </div> -->
+                    </div>                         
+                    <div class="iq-card-body favorites-contens">
+                        <ul id="single-similar-slider3">
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="col-md-4">
+                            <div class="card text-center"><img class="card-img-top" src="https://images.unsplash.com/photo-1572561300743-2dd367ed0c9a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=300&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=50&w=300" alt="">
+                                <div class="card-body">
+                                <h5>Ronne Galle <br />
+                                    <span> Project Manager </span>
+                                </h5>
+                                <p class="card-text">“ Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+                                    impedit quo minus id quod maxime placeat ” </p>
+                                </div>
+                            </div>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- sunil added code -->
+
+            <div class="col-lg-12 is-hidden">
+                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
+                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
+                        <div class="iq-header-title">
+                            <h4 class="card-title mb-0">Testimonial</h4>
+                        </div>
+                        <!-- <div class="iq-card-header-toolbar d-flex align-items-center">
+                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
+                        </div> -->
+                    </div>                         
+                    <div class="iq-card-body favorites-contens">
+                        <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="<?= base_url(); ?>assets/front-theme/images/new_realeases/Sales_and_Marketing.png" class="img-fluid rounded w-100" alt="">
+                                        </a>                                
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
+                                        <p class="mb-2">Author : Pedro Araez</p>                                          
+                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-primary">
+                                                <span class="bg-primary" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="images/favorite/02.jpg" class="img-fluid rounded w-100" alt="">
+                                        </a>                                
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">Casey Christie night book into find...</h5>
+                                        <p class="mb-2">Author : Michael klock</p>                                          
+                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-danger">
+                                                <span class="bg-danger" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="images/favorite/03.jpg" class="img-fluid rounded w-100" alt="">
+                                        </a>                                
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">The Secret to English Busy People..</h5>
+                                        <p class="mb-2">Author : Daniel Ace</p>                                          
+                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-info">
+                                                <span class="bg-info" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="col-md-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="col-5 p-0 position-relative">
+                                        <a href="javascript:void();">
+                                            <img src="images/favorite/04.jpg" class="img-fluid rounded w-100" alt="">
+                                        </a>                                
+                                    </div>
+                                    <div class="col-7">
+                                        <h5 class="mb-2">The adventures of Robins books...</h5>
+                                        <p class="mb-2">Author : Luka Afton</p>                                          
+                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
+                                            <span>Reading</span>
+                                            <span class="mr-4">78%</span>
+                                        </div>
+                                        <div class="iq-progress-bar-linear d-inline-block w-100">
+                                            <div class="iq-progress-bar iq-bg-success">
+                                                <span class="bg-success" data-percent="78"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- sunil added code end -->
             <div class="col-lg-12">
                 
 
@@ -1156,114 +1358,7 @@ $("li").on("click", function(e){
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 is-hidden">
-                <div class="iq-card iq-card-block iq-card-stretch iq-card-height">
-                    <div class="iq-card-header d-flex justify-content-between align-items-center position-relative">
-                        <div class="iq-header-title">
-                            <h4 class="card-title mb-0">Favorite Reads</h4>
-                        </div>
-                        <div class="iq-card-header-toolbar d-flex align-items-center">
-                            <a href="category.html" class="btn btn-sm btn-primary view-more">View More</a>
-                        </div>
-                    </div>                         
-                    <div class="iq-card-body favorites-contens">
-                        <ul id="favorites-slider" class="list-inline p-0 mb-0 row">
-                            <li class="col-md-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="col-5 p-0 position-relative">
-                                        <a href="javascript:void();">
-                                            <img src="images/favorite/01.jpg" class="img-fluid rounded w-100" alt="">
-                                        </a>                                
-                                    </div>
-                                    <div class="col-7">
-                                        <h5 class="mb-2">Every Book is a new Wonderful Travel..</h5>
-                                        <p class="mb-2">Author : Pedro Araez</p>                                          
-                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                            <span>Reading</span>
-                                            <span class="mr-4">78%</span>
-                                        </div>
-                                        <div class="iq-progress-bar-linear d-inline-block w-100">
-                                            <div class="iq-progress-bar iq-bg-primary">
-                                                <span class="bg-primary" data-percent="78"></span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="col-5 p-0 position-relative">
-                                        <a href="javascript:void();">
-                                            <img src="images/favorite/02.jpg" class="img-fluid rounded w-100" alt="">
-                                        </a>                                
-                                    </div>
-                                    <div class="col-7">
-                                        <h5 class="mb-2">Casey Christie night book into find...</h5>
-                                        <p class="mb-2">Author : Michael klock</p>                                          
-                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                            <span>Reading</span>
-                                            <span class="mr-4">78%</span>
-                                        </div>
-                                        <div class="iq-progress-bar-linear d-inline-block w-100">
-                                            <div class="iq-progress-bar iq-bg-danger">
-                                                <span class="bg-danger" data-percent="78"></span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="col-5 p-0 position-relative">
-                                        <a href="javascript:void();">
-                                            <img src="images/favorite/03.jpg" class="img-fluid rounded w-100" alt="">
-                                        </a>                                
-                                    </div>
-                                    <div class="col-7">
-                                        <h5 class="mb-2">The Secret to English Busy People..</h5>
-                                        <p class="mb-2">Author : Daniel Ace</p>                                          
-                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                            <span>Reading</span>
-                                            <span class="mr-4">78%</span>
-                                        </div>
-                                        <div class="iq-progress-bar-linear d-inline-block w-100">
-                                            <div class="iq-progress-bar iq-bg-info">
-                                                <span class="bg-info" data-percent="78"></span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="col-5 p-0 position-relative">
-                                        <a href="javascript:void();">
-                                            <img src="images/favorite/04.jpg" class="img-fluid rounded w-100" alt="">
-                                        </a>                                
-                                    </div>
-                                    <div class="col-7">
-                                        <h5 class="mb-2">The adventures of Robins books...</h5>
-                                        <p class="mb-2">Author : Luka Afton</p>                                          
-                                        <div class="d-flex justify-content-between align-items-center text-dark font-size-13">
-                                            <span>Reading</span>
-                                            <span class="mr-4">78%</span>
-                                        </div>
-                                        <div class="iq-progress-bar-linear d-inline-block w-100">
-                                            <div class="iq-progress-bar iq-bg-success">
-                                                <span class="bg-success" data-percent="78"></span>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="text-dark">Read Now<i class="ri-arrow-right-s-line"></i></a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

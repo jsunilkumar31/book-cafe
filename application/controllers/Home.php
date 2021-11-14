@@ -79,9 +79,9 @@ class Home extends MY_Controller
         }
         
         
-        /*echo '<pre>';
-        var_export($category_id);
-        die;*/
+    //    echo '<pre>';
+    //     print_r($books);
+    //     die;
         // automatically generate page title
         if (empty($this->mPageTitle)) {
             if ($this->mAction == 'index') {
@@ -352,5 +352,6 @@ class Home extends MY_Controller
         }
         $this->lms->send_json(array('results' => $data));
     }
+    
 
 }
